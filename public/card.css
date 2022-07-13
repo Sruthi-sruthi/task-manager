@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Inconsolata:wght@200&family=Rubik+Moonrocks&family=Smokum&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Catamaran:wght@100&family=Inconsolata:wght@200&family=Lobster&family=Rubik+Moonrocks&family=Smokum&display=swap');
+.card1 {
+    /* box-shadow: 4px 4px 8px 0 rgba(0,0,0,0.2); */
+    box-shadow: 4px 4px 8px 0 black;
+    transition: 0.3s;
+    margin-left: 300px;
+    margin-right:300px;
+    margin-top: 30px;
+    padding-left: 20px;
+    padding-top: 30px;
+    padding-bottom: 50px;
+    /* background-color: rgb(112, 127, 140) ; */
+    background-image: linear-gradient(to right,rgb(178, 209, 223),rgb(145, 185, 203),rgb(156, 168, 172));
+  }
+  .card1:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }  
+  .edit{
+    width: 150px;
+    height: 30px;
+    margin-left: 35px;
+    margin-top: 10px;
+    /* background-color: rgb(133, 200, 200); */
+     /* background-color: rgb(90, 110, 119); */
+  background-image: linear-gradient(rgba(77, 144, 230, 0.929),rgb(58, 100, 148))
+
+  }
+  .edit:hover{
+    background-image:linear-gradient(rgb(135, 81, 214),rgb(108, 73, 160))
+    
+  }
+  .delete-btn{
+    width: 150px;
+    height: 30px;
+    margin-left: 20px;
+    /* background-color: rgb(133, 200, 200); */
+  /* background-color: rgb(90, 110, 119); */
+  background-image: linear-gradient(rgb(169, 85, 85),rgb(246, 100, 100))
+
+  }
+.delete-btn:hover{
+  /* background-image: linear-gradient(rgba(77, 144, 230, 0.929),rgb(58, 100, 148)) */
+  background-image: linear-gradient(rgba(173, 38, 38, 0.929),rgb(220, 22, 49))
+}
+
+  .complete{
+    width: 150px;
+    height: 30px;
+    margin-left: 20px;
+    /* background-color: rgb(133, 200, 200); */
+  /* background-color: rgb(90, 110, 119); */
+  background-image: linear-gradient(rgb(13, 92, 70),rgb(48, 119, 96));
+
+
+  }
+  .complete:hover{
+    /* background-image: linear-gradient(rgb(142, 207, 189),rgb(82, 215, 171)); */
+  background-image: linear-gradient(rgb(125, 237, 125),rgb(102, 157, 102))
+
+  }
+  h1{
+    text-align: center;
+    text-transform: uppercase;
+    text-transform: capitalize;
+}
+body{
+  /* background-image: url("https://img.freepik.com/free-vector/dreamy-rainbow-color-beautiful-clouds-background_1017-26301.jpg?w=2000"); */
+  background-image: url("https://i.pinimg.com/originals/8b/82/bc/8b82bc812235773060e739897c66d57a.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button{
+  text-transform: uppercase;
+  color: white;
+ box-shadow: 2px  2px 2px black;
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ border: none;
+
+}
+.description{
+  text-transform: capitalize;
+  font-size: 1.3rem;
+  font-family: 'Abel', sans-serif;
+  font-weight: 700;
+
+
+}
+.date{
+  text-transform: capitalize;
+  font-size: 1.3rem;
+  font-family: 'Abel', sans-serif;
+  font-weight: 700;
+}
+
+.status{
+  text-transform: capitalize;
+  font-size: 1.3rem;
+  font-family: 'Abel', sans-serif;
+  font-weight: 700;
+}
+.text-box{
+  font-size: 40px;
+  font-family: sans-serif;
+  /* position: absolute; */
+ transform: translate(-50%,-50%); 
+ margin-left: 600px;
+ font-family: 'Rubik Moonrocks', cursive;
+ 
+
+}
+span{
+  display: inline-block;
+  font-weight: bolder;
+  animation: mover 6s linear infinite;
+}
+@keyframes mover{
+  0%{
+    text-shadow: 0 0 30px rgba(0,0,0,0);
+  }
+  50%{
+    text-shadow: 0 0 30px rgba(0,0,0,0.30);
+    transform: translateY(30px);
+  }
+  100%{
+    text-shadow: 0 0 30px rgba(0,0,0,0);
+
+  }
+}
+span:nth-child(1){
+  animation-delay: 0.5s;
+  color: rgb(72, 7, 110);
+}
+span:nth-child(2){
+  animation-delay: 1s;
+}
+span:nth-child(3){
+  animation-delay: 1.5s;
+}
+span:nth-child(4){
+  animation-delay: 2s;
+  color: rgb(14, 16, 124);
+
+}
+span:nth-child(5){
+  animation-delay: 2.5s;
+}
+span:nth-child(6){
+  animation-delay: 3s;
+}
+span:nth-child(7){
+  animation-delay: 3.5s;
+}
+span:nth-child(8){
+  animation-delay: 4s;
+}

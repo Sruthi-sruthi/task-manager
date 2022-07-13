@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="card.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+      integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body>
+    <!-- <h1>all tasks</h1> -->
+    <h1 class="text-box">
+      <span>A</span>
+      <span>L</span>
+      <span>L</span>
+      <span>T</span>
+      <span>A</span>
+      <span>S</span>
+      <span>K</span>
+      <span>S</span>
+    </h1>
+
+    <div id="wrapper"></div>
+    <script>
+      window.onload = fetchUsers();
+      async function fetchUsers() {
+        let { data } = await axios.get(
+          "http://localhost:3000/api/v1/get-all-tasks"
+        );
+        let allTasks = data.tasks
+          .map(function (task) {
+            console.log(task);
+            return `<div class="card1">
+        <div id="container"> <p class="description"> taskdescription:  ${task.taskDescription}
+            <p class="date"> duedate:  ${task.dueDate}</p>
+            <p class="status" >status:${task.status}</p>
+            <button class="edit" type="button" data-id="${task._id}">edit</button>
+            <button class="delete-btn" type="button" data-id="${task._id}">delete</button>
+            <button class="complete" type="button" data-id="${task._id}">complete</button><br><br><br>
+               </div>
+      </div>`;
+          })
+          .join(" ");
+        console.log(allTasks);
+        document.querySelector("#wrapper").innerHTML = allTasks;
+      }
+      async function deleteTask(id) {
+        let delTask = await axios.delete(
+          "http://localhost:3000/api/v1/delete-task/" + id
+        );
+        if (delTask.data.success) {
+          alert(delTask.data.message);
+          window.location.href = "http://localhost:3000/card.html";
+        }
+      }
+      let deleteButton = document.querySelector("#wrapper");
+      deleteButton.addEventListener("click", async (e) => {
+        if (e.target.classList.contains("delete-btn")) {
+          // console.log(e.target.dataset.id);
+          let id = e.target.dataset.id;
+          deleteTask(id);
+        }
+        if (e.target.classList.contains("edit")) {
+          let id = e.target.dataset.id;
+          window.location.href = "http://localhost:3000/edit.html?id=" + id;
+        }
+        // alert("hy");
+        if (e.target.classList.contains("complete")) {
+          let id = e.target.dataset.id;
+          let { data } = await axios.patch(
+            "http://localhost:3000/api/v1/complete-task/" + id
+          );
+          if (data.success) {
+            alert(data.message);
+            window.location.href = "http://localhost:3000/card.html";
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

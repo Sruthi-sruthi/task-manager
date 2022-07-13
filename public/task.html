@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="task.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+      integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body>
+    <!-- <h1>tasks</h1> -->
+    <h1 class="text-box">
+      <span>A</span>
+      <span>D</span>
+      <span>D</span>
+      <span>T</span>
+      <span>A</span>
+      <span>S</span>
+      <span>K</span>
+      <span>S</span>
+    </h1>
+    <div class="main">
+      <form id="form">
+        <p class="description">enter a description :</p>
+        <input
+          type="text"
+          name="taskDescription"
+          placeholder="taskDescription"
+          id="taskDescription"
+          required
+        /><br /><br />
+        <p class="date">final date for task:</p>
+        <input
+          type="date"
+          name="dueDate"
+          placeholder="dueDate"
+          id="dueDate"
+          required
+        /><br /><br />
+        <button type="submit">submit</button>
+      </form>
+    </div>
+    <script>
+      let form = document.getElementById("form");
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        let taskDescription = document.getElementById("taskDescription").value;
+        console.log(taskDescription);
+        let dueDate = document.getElementById("dueDate").value;
+        console.log(dueDate);
+        let obj = {
+          taskDescription,
+          dueDate,
+        };
+        let response = await axios.post(
+          "http://localhost:3000/api/v1/add-task",
+          obj
+        );
+        if (response.data.success) {
+          alert(response.data.message);
+          window.location.href = "http://localhost:3000/card.html";
+          // console.log(response.data);
+        }
+      });
+    </script>
+  </body>
+</html>
